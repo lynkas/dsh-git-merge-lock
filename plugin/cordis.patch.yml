@@ -1,0 +1,7 @@
+# Bundle-layer self-insert: one row feeds both consumers —
+# the cordis loader mounts the host half (this package's main = the mutex
+# service + model tool), and the client-modules scanner resolves
+# `dsh-git-merge-lock/package.json` to discover the `./client` browser half.
+- insert:
+    - id: git-merge-lock
+      name: dsh-git-merge-lock

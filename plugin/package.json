@@ -1,0 +1,21 @@
+{
+  "name": "dsh-git-merge-lock",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Cross-session git merge mutex (host plane) + sidebar lock UI (web client plane)",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  }
+}
