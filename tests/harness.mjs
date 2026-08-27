@@ -1,6 +1,6 @@
 // 离线语义验证:git-merge-lock v2 内核(方案1)
-import { apply } from '/Users/cat/dsh-git-merge-lock/plugin/index.mjs'
-import { __internals } from '/Users/cat/dsh-git-merge-lock/plugin/index.mjs'
+import { apply } from '../plugin/index.mjs'
+import { __internals } from '../plugin/index.mjs'
 import assert from 'node:assert'
 import { mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'

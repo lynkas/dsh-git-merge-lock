@@ -20,6 +20,19 @@ dsh-git-merge-lock/
 └── docs/                ← 三份宿主机制调研报告(挂载/RPC/slots 的证据链)
 ```
 
+## 从 npm 安装(普通用户)
+
+```bash
+dsh plugin --profile web add dsh-git-merge-lock
+# 再把下面的 insert 块追加到 ~/.dsh/profiles/web/cordis.patch.yml :
+- insert:
+    - id: git-merge-lock
+      name: dsh-git-merge-lock
+# 重启 dsh
+```
+
+npm 包名:`dsh-git-merge-lock` · 标签:`deepseek` / `deepseek-harness` / `dsh` / `dsh-plugin` · 在 dsh `0.1.1-rc.2` 验证。
+
 ## 生产安装点(勿删)
 
 | 路径 | 形态 | 作用 |

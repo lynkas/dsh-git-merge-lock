@@ -1,9 +1,40 @@
 {
   "name": "dsh-git-merge-lock",
   "version": "2.0.0",
-  "private": true,
   "type": "module",
-  "description": "Cross-session git merge mutex (host plane) + sidebar lock UI (web client plane)",
+  "description": "Cross-session git merge mutex for the dsh web GUI: repo-wide FIFO queue with lifecycle-bound leases (host plane) + sidebar lock indicator and manual unlock dialog (web client plane)",
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "git",
+    "merge",
+    "mutex",
+    "lock",
+    "multi-agent",
+    "ai-agents"
+  ],
+  "license": "MIT",
+  "author": "lynkas",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lynkas/dsh-git-merge-lock.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lynkas/dsh-git-merge-lock/issues"
+  },
+  "homepage": "https://github.com/lynkas/dsh-git-merge-lock#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "lib",
+    "index.mjs",
+    "cordis.patch.yml",
+    "LICENSE",
+    "README.md"
+  ],
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",

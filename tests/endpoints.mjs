@@ -14,7 +14,7 @@ fs.writeFileSync(path.join(FAKE_HOME, 'git-merge-lock.json'), JSON.stringify({
   enabled: true, branches: ['main'], timeout_s: 110,
 }))
 
-const { apply } = await import('/Users/cat/dsh-git-merge-lock/plugin/index.mjs')
+const { apply } = await import('../plugin/index.mjs')
 
 let pass = 0, fail = 0
 const check = (n, c) => { c ? (pass++, console.log(`  ✓ ${n}`)) : (fail++, console.log(`  ✗ FAIL ${n}`)) }
@@ -83,7 +83,7 @@ check('non-repo -> found=false', bad.found === false && /not a git repository/.t
 console.log('E5 live lock reflected in status')
 // 直接驱动内核:acquire(release 由同工具做)——用已注册的模型工具路径不行(root ctx 的 tools.register 是noop),
 // 这里直接操纵内核 map(svc 与工具共享同一 repos 表,通过模块内单例)
-const { __internals } = await import('/Users/cat/dsh-git-merge-lock/plugin/index.mjs')
+const { __internals } = await import('../plugin/index.mjs')
 const commondir = execFileSync('git', ['-C', E1, 'rev-parse', '--path-format=absolute', '--git-common-dir']).toString().trim()
 const repo = [...__internals.repos.values()].find((r) => r.key === commondir)
 check('repo record materialized by earlier status calls', !!repo)
@@ -104,7 +104,7 @@ if (repo) {
   check('waiter listed with waitedMs', stQ.waiters.length === 1 && stQ.waiters[0].sessionId === 'ui-check-B' && stQ.waiters[0].waitedMs >= 0)
   // 释放两者
   repo.queue.pop()
-  await import('/Users/cat/dsh-git-merge-lock/plugin/index.mjs').then(async (m) => {
+  await import('../plugin/index.mjs').then(async (m) => {
     // 用 doRelease 私有件不可达;以 force 捷径:直接消费 entry
     stQ // noop
   })
